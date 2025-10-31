@@ -1,0 +1,566 @@
+/* ==========================================
+   메인 페이지 전용 CSS
+   ========================================== */
+
+/* 메인 섹션 */
+.main-section {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "GumiRomance", sans-serif;
+}
+
+.section-title a {
+  font-size: 14px;
+  color: #e67e4d;
+  text-decoration: none;
+}
+
+.section-title a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   엉덩코기 MVP 섹션 - 갤러리 스타일 적용
+   ========================================== */
+
+/* MVP 순위 배지를 이미지 위에 표시 */
+.gallery-card .mvp-rank-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 10;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  animation: bounceIn 0.6s ease-out;
+}
+
+.gallery-card .mvp-rank-badge.rank-1 {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+}
+
+.gallery-card .mvp-rank-badge.rank-2 {
+  background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+  box-shadow: 0 4px 15px rgba(192, 192, 192, 0.5);
+}
+
+.gallery-card .mvp-rank-badge.rank-3 {
+  background: linear-gradient(135deg, #cd7f32 0%, #daa06d 100%);
+  box-shadow: 0 4px 15px rgba(205, 127, 50, 0.5);
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* CSS order로 순위 재배치: 1등이 맨 앞 */
+.butt-mvp-card[data-rank="1"] {
+  order: 1;
+}
+
+.butt-mvp-card[data-rank="2"] {
+  order: 2;
+}
+
+.butt-mvp-card[data-rank="3"] {
+  order: 3;
+}
+
+/* gallery-card-image에 relative 추가하여 배지 위치 기준점 설정 */
+.gallery-card-image {
+  position: relative;
+}
+
+/* ==========================================
+   코기talk 게시판 섹션 (목록형)
+   ========================================== */
+.board-section {
+  background: rgba(255, 255, 255, 0.7); /* 반투명 흰색 배경 */
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  min-height: 300px;
+}
+
+.board-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.board-item-card {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.board-item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.board-item-image {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+}
+
+.board-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.board-item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.board-category {
+  display: inline-block;
+  background: #e67e4d;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+.board-title {
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.board-content {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.board-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #999;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* 갤러리 그리드 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+  background: rgba(255, 255, 255, 0.7); /* 반투명 흰색 배경 */
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-card-image {
+  width: 100%;
+  height: 280px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.gallery-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-card-info {
+  padding: 15px;
+}
+
+.gallery-card-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.gallery-card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #999;
+}
+
+/* 빈 상태 */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.empty-state h3 {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* ==========================================
+   테스트 이미지 슬라이더
+   ========================================== */
+.test-slider-section {
+  background: transparent; /* 배경 제거 */
+  padding: 0;
+  margin: 50px auto 0;
+  max-width: 1200px;
+}
+
+/* test-image-slider에 배경 적용 */
+.test-image-slider {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 60px;
+  background: rgba(255, 255, 255, 0.7); /* 반투명 흰색 배경 */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.slider-wrapper {
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide-item {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide-item a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+
+.slide-item img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  color: white;
+  padding: 40px 30px;
+  text-align: left;
+}
+
+.slide-overlay h3 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slide-overlay p {
+  font-size: 18px;
+  opacity: 0.95;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* 슬라이더 버튼 */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slider-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* 슬라이더 인디케이터 */
+.slider-dots {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  background: rgba(230, 126, 77, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot:hover {
+  background: rgba(230, 126, 77, 0.6);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: #e67e4d;
+  width: 30px;
+  border-radius: 6px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .butt-mvp-grid {
+    flex-direction: column;
+  }
+
+  /* 엉덩코기 MVP - 모바일에서 3개가 한 줄에 */
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .gallery-card-image {
+    height: 120px;
+  }
+
+  .gallery-card-info {
+    padding: 10px;
+  }
+
+  .gallery-card-title {
+    font-size: 13px;
+  }
+
+  .gallery-card-meta {
+    font-size: 11px;
+  }
+
+  /* 코기TALK - 모바일에서도 가로 배치 유지 */
+  .board-item-card {
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .board-item-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .board-title {
+    font-size: 16px;
+  }
+
+  .board-content {
+    font-size: 13px;
+  }
+
+  .board-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .test-image-slider {
+    padding: 0 50px;
+  }
+
+  .slide-item img {
+    height: 350px;
+  }
+
+  .slide-overlay h3 {
+    font-size: 24px;
+  }
+
+  .slide-overlay p {
+    font-size: 14px;
+  }
+
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 엉덩코기 MVP - 480px 이하에서도 3개 유지 */
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .gallery-card-image {
+    height: 100px;
+  }
+
+  .gallery-card-info {
+    padding: 8px;
+  }
+
+  .gallery-card-title {
+    font-size: 12px;
+  }
+
+  .gallery-card-meta {
+    font-size: 10px;
+  }
+
+  .mvp-rank-badge {
+    font-size: 12px;
+    padding: 4px 8px;
+    top: 8px;
+    left: 8px;
+  }
+
+  /* 코기TALK - 가로 배치 유지 */
+  .board-section {
+    padding: 15px;
+  }
+
+  .board-item-card {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .board-item-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .board-title {
+    font-size: 15px;
+  }
+
+  .board-content {
+    font-size: 12px;
+  }
+
+  .test-image-slider {
+    padding: 0 40px;
+  }
+
+  .slide-item img {
+    height: 300px;
+  }
+
+  .slide-overlay {
+    padding: 25px 20px;
+  }
+
+  .slide-overlay h3 {
+    font-size: 20px;
+  }
+
+  .slide-overlay p {
+    font-size: 13px;
+  }
+}
